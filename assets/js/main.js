@@ -141,7 +141,7 @@ async function load() {
                 `;
                 }
             });
-        }else {
+        } else {
             innerHtmlMainContent += `
                 <h1 class="not-found-item">Không tìm thấy dữ liệu</h1>
             `
@@ -187,25 +187,39 @@ async function load() {
     //Xử lý tìm kiếm
     let searchBtn = document.querySelector(".search-btn");
     let foundArray = []
+    let currentArray = []
+    jsonData.forEach((item) => {
+        currentArray.push(item);
+    })
 
     searchInput.oninput = (e) => {
         foundArray = [];
-        jsonData.forEach((item) => {
-            if (item.tenXe.search(e.target.value) != -1 && searchInput.value != "") {
+        currentArray.forEach((item) => {
+            if (item.tenXe.search(e.target.value) != -1) {
                 foundArray.push(item);
+            } else if (searchInput.value == "") {
+                foundArray = currentArray;
             }
         })
     }
 
     searchInput.onkeypress = (e) => {
-        if (e.keyCode === 13) {
-            e.preventDefault();
-            loadDataMainContent(foundArray);
+        if (searchInput.value == "") {
+            loadDataMainContent(currentArray);
+        } else {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                loadDataMainContent(foundArray);
+            }
         }
     }
 
     searchBtn.onclick = () => {
-        loadDataMainContent(foundArray);
+        if (searchInput.value == "") {
+            loadDataMainContent(currentArray);
+        } else {
+            loadDataMainContent(foundArray);
+        }
     }
 }
 
