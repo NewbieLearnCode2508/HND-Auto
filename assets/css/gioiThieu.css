@@ -106,16 +106,16 @@
     margin: auto;
     padding: 50px 20px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Khoảng cách giữa các mục */
 }
 
 .criteria-item {
-    flex: 1;
+    flex: 1 1 calc(25% - 20px); /* Đối với desktop */
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     text-align: center;
-    margin: 0 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
     transition: box-shadow 0.3s ease; /* Hiệu ứng transition */
 }
@@ -133,10 +133,18 @@
     line-height: 1.6;
 }
 
-/* Hiệu ứng hover cho tất cả các phần tử */
-.company-criteria:hover .criteria-item {
-    flex: none; /* Bỏ đi thuộc tính flex */
-    width: calc(100% / 4 - 20px); /* Tính toán lại kích thước để các phần tử trở nên nhỏ lại và hợp lại */
+/* Media queries cho tablet */
+@media (max-width: 768px) {
+    .criteria-item {
+        flex: 1 1 calc(50% - 20px); /* Đối với tablet */
+    }
+}
+
+/* Media queries cho mobile */
+@media (max-width: 480px) {
+    .criteria-item {
+        flex: 1 1 100%; /* Đối với mobile */
+    }
 }
 
 /* Responsive */
