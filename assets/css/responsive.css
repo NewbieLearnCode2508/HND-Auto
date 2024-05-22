@@ -144,6 +144,10 @@
         right: 20px;
     }
 
+    .car-item {
+        max-width: 250px;
+    }
+
     /* Footer ======================================== */
 
     .footer-custom {
