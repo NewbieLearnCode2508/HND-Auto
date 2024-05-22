@@ -408,7 +408,6 @@
 /*=============== Content =============== */
 #content {
     width: 100%;
-    padding-bottom: 40px;
     position: relative;
 }
 
@@ -434,6 +433,7 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 24px;
 }
 
 .footer-container {
