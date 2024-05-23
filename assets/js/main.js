@@ -64,9 +64,6 @@ async function load() {
 
     updateStatusCart();
 
-    //slider trang gthieu
-    setupSliderAward();
-
     //Margin thằng body bằng với thằng header
     marginHeader();
 
